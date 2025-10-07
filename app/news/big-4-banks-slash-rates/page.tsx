@@ -5,18 +5,18 @@ import { Footer } from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   title: 'Big 4 Banks Slash Rates Ahead of RBA Decision | GMG Financial Services Melbourne',
-  description: 'Major Australian banks including CBA, NAB, ANZ, and Westpac have preemptively reduced home loan rates ahead of the RBA decision. Get expert financial advice from GMG Financial Services in Melbourne.',
+  description: 'Major Australian banks including CBA, NAB, ANZ, and Westpac have preemptively reduced home loan rates ahead of the RBA decision. Get professional financial advice from GMG Financial Services in Melbourne.',
   keywords: 'Big 4 banks, RBA interest rates, home loan rates Melbourne, mortgage refinancing, CBA rates, NAB rates, ANZ rates, Westpac rates, GMG Financial Services, Melbourne financial advisor, mortgage broker Melbourne',
   openGraph: {
     title: 'Big 4 Banks Slash Rates Ahead of RBA Decision | GMG Financial Services',
-    description: 'Major Australian banks have preemptively reduced home loan rates. Expert financial advice from Melbourne-based GMG Financial Services.',
+    description: 'Major Australian banks have preemptively reduced home loan rates. Professional financial advice from Melbourne-based GMG Financial Services.',
     type: 'article',
     locale: 'en_AU',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Big 4 Banks Slash Rates Ahead of RBA Decision | GMG Financial Services',
-    description: 'Major Australian banks have preemptively reduced home loan rates. Expert financial advice from Melbourne-based GMG Financial Services.',
+    description: 'Major Australian banks have preemptively reduced home loan rates. Professional financial advice from Melbourne-based GMG Financial Services.',
   },
   alternates: {
     canonical: 'https://gmgfinancial.com.au/news/big-4-banks-slash-rates',
@@ -268,12 +268,12 @@ export default function Big4BanksArticle() {
               </figure>
 
                              <h3 className="text-xl font-heading font-light text-[#1f2937] mb-6">
-                 Expert Financial Guidance in Melbourne
+                 Professional Financial Guidance in Melbourne
                </h3>
                
                <p className="text-base leading-relaxed text-gray-700 mb-8">
                  At GMG Financial Services, we understand that navigating these rate changes can be complex and overwhelming. 
-                 Our Melbourne-based team provides expert financial advice to help you make informed decisions.
+                 Our Melbourne-based team provides professional financial advice to help you make informed decisions.
                </p>
 
                              <div className="border border-gray-300 p-8 rounded-2xl mb-12">
@@ -286,7 +286,7 @@ export default function Big4BanksArticle() {
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-teal-500 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">Compare rates across different lenders to find the best deal</span>
+                      <span className="text-gray-700">Compare rates across different lenders to find the most suitable outcome</span>
                     </li>
                   </ul>
                   <ul className="space-y-4">

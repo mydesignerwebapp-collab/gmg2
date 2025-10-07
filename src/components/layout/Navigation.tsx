@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Phone, Mail } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navigation = [
@@ -60,14 +60,6 @@ export function Navigation() {
 
           {/* Desktop navigation */}
           <div className="hidden lg:flex items-center gap-8">
-            <a 
-              href="tel:1300GMGFIN" 
-              className="flex items-center gap-2 hover:text-teal-300 transition-colors text-white text-caption font-light"
-              aria-label="Call us at 1300 GMG FIN"
-            >
-              <Phone className="h-4 w-4" />
-              <span>1300 GMG FIN</span>
-            </a>
             {navigation.map((item) => (
               <button
                 key={item.name}
@@ -108,17 +100,6 @@ export function Navigation() {
             className="lg:hidden bg-gray-950 border-t border-gray-800"
           >
             <div className="container-custom py-4 space-y-4">
-              {/* Mobile contact info */}
-              <div className="flex flex-col gap-3 text-sm text-gray-300 border-b border-gray-800 pb-4">
-                <a 
-                  href="tel:1300GMGFIN" 
-                  className="flex items-center gap-2 hover:text-teal-300 transition-colors text-caption font-light"
-                >
-                  <Phone className="h-4 w-4" />
-                  <span>1300 GMG FIN</span>
-                </a>
-              </div>
-
               {/* Mobile navigation links */}
               <div className="flex flex-col gap-4">
                 {navigation.map((item) => (

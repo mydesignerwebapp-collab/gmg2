@@ -70,7 +70,7 @@ export function ServicesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
@@ -102,6 +102,48 @@ export function ServicesSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Mobile swipe hint */}
+        <div className="md:hidden px-1 mb-2 flex items-center gap-2 text-xs text-gray-500">
+          <span>Swipe</span>
+          <ArrowRight className="h-4 w-4" />
+        </div>
+        {/* Mobile horizontal scroll */}
+        <div className="relative md:hidden h-scroll h-scroll-reveal-next mt-2">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.id}
+              className="h-scroll-item w-[80%] max-w-xs card p-6 text-center mr-2"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-teal-500 text-white mb-4">
+                <service.icon className="h-8 w-8" />
+              </div>
+              <h3 className="card-title tracking-wide mb-2">{service.title}</h3>
+              <p className="text-sm text-gray-600 mb-4">{service.description}</p>
+              <Button onClick={() => scrollToSection('#contact')} className="border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white">Learn More</Button>
+            </motion.div>
+          ))}
+          <div className="h-scroll-cue" />
+        </div>
+
+        {/* Non-credit Services Disclaimer */}
+        <motion.div
+          className="mt-16 p-6 bg-gray-50 rounded-lg border border-gray-200"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h4 className="text-sm font-semibold text-gray-700 mb-2">Important Notice</h4>
+          <p className="text-xs text-gray-600 leading-relaxed">
+            All non-credit services offered by GMG Financial Services are conducted under a separate licence or registration. 
+            These services are not authorised under Australian Credit Licence 389328.
+          </p>
+        </motion.div>
       </div>
     </section>
   )

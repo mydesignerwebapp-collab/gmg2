@@ -197,7 +197,7 @@ export default function FirstHomeBuyerTipsArticle() {
                   <h3 className="text-lg font-semibold text-[#1f2937]">The Power of Pre-Approval</h3>
                 </div>
                 <p className="text-base text-gray-700 mb-4">
-                  This shows sellers you're serious and helps you act fast when you find the right property. It also protects you from overcommitting to a purchase beyond your means.
+                  This shows sellers you're serious and helps you act promptly when you find the right property. It also protects you from overcommitting to a purchase beyond your means.
                 </p>
                 <p className="text-base text-gray-700">
                   Pre-approval is a conditional approval from a lender that indicates how much they're willing to lend you based on your current financial situation. While not a guarantee, it significantly strengthens your position as a buyer.
@@ -369,7 +369,7 @@ export default function FirstHomeBuyerTipsArticle() {
                   <h3 className="text-lg font-semibold text-[#1f2937]">Maximizing Available Support</h3>
                 </div>
                 <p className="text-base text-gray-700 mb-4">
-                  In 2025, the First Home Owner Grant (FHOG) and stamp duty concessions can significantly reduce upfront costs, especially for newly built homes. These incentives can save you thousands of dollars.
+                  In 2025, the First Home Owner Grant (FHOG) and stamp duty concessions can significantly reduce upfront costs, especially for newly built homes. These incentives may result in significant savings.
                 </p>
                 <p className="text-base text-gray-700">
                   Government incentives vary by state and territory, and eligibility criteria change regularly. Understanding what's available can make the difference between buying now or waiting longer to save more.
@@ -480,7 +480,7 @@ export default function FirstHomeBuyerTipsArticle() {
               <div className="bg-gradient-to-r from-teal-500 to-teal-600 text-white p-10 rounded-2xl mb-12 text-center">
                 <h3 className="text-xl font-heading font-light mb-4">Ready to Start Your Home Buying Journey?</h3>
                 <p className="text-base mb-8 opacity-90">
-                  Don't navigate the complex world of first home buying alone. Contact GMG Financial Services today for expert guidance and support throughout your journey to homeownership.
+                  Don't navigate the complex world of first home buying alone. Contact GMG Financial Services today for professional guidance and support throughout your journey to homeownership.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a 

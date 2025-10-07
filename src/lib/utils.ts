@@ -40,3 +40,11 @@ export function isValidPhone(phone: string): boolean {
   const phoneRegex = /^(\+61|0)[2-478](?:[ -]?[0-9]){8}$/
   return phoneRegex.test(phone)
 } 
+
+export function scrollToSection(selector: string, offset: number = 80): void {
+  if (typeof window === 'undefined' || !selector) return
+  const element = document.querySelector(selector) as HTMLElement | null
+  if (!element) return
+  const targetTop = element.getBoundingClientRect().top + window.scrollY - offset
+  window.scrollTo({ top: targetTop, behavior: 'smooth' })
+}

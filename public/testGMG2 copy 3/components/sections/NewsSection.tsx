@@ -28,7 +28,7 @@ const faqItems = [
   {
     id: '5',
     question: 'How do I get started with a consultation?',
-    answer: 'Getting started is easy! Simply contact us via phone (1300 GMG FIN), email, or fill out our contact form. We\'ll arrange a free initial consultation to discuss your financial goals and how we can help.'
+    answer: 'Getting started is straightforward! Simply contact us via phone (1300 GMG FIN), email, or fill out our contact form. We\'ll arrange a free initial consultation to discuss your financial goals and how we can help.'
   },
   {
     id: '6',

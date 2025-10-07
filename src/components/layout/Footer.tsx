@@ -96,11 +96,45 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom Bar */}
+        {/* Disclaimers and Legal Information */}
         <div className="border-t border-gray-900 mt-12 pt-8">
+          {/* General Disclaimer */}
+          <div className="mb-8">
+            <h4 className="text-sm font-semibold text-gray-300 mb-3">General Disclaimer</h4>
+            <p className="text-xs text-gray-400 leading-relaxed">
+              This page provides general information only and has been prepared without taking into account your objectives, 
+              financial situation or needs. We recommend that you consider whether it is appropriate for your circumstances 
+              and your full financial situation will need to be reviewed prior to acceptance of any offer or product. 
+              Information relating to credit services does not constitute legal, tax or financial advice and you should 
+              always seek professional advice in relation to your individual circumstances.
+            </p>
+          </div>
+
+          {/* Business Details */}
+          <div className="mb-8">
+            <h4 className="text-sm font-semibold text-gray-300 mb-3">Licensing & Business Details</h4>
+            <div className="text-xs text-gray-400 space-y-2">
+              <p>MG Accounting Services Pty Ltd – ABN 17 595 831 549</p>
+              <p>GMG Financial Services Pty Ltd – ABN 15 618 903 861</p>
+              <p>Credit Representative 405166 of Connective Credit Services Pty Ltd</p>
+              <p>Australian Credit Licence 389328</p>
+              <p>Credit Representative 405166 is authorised under Australian Credit Licence 389328. Your full financial situation will need to be assessed prior to acceptance of any offer or product.</p>
+            </div>
+          </div>
+
+          {/* Non-credit Services Disclaimer */}
+          <div className="mb-8">
+            <h4 className="text-sm font-semibold text-gray-300 mb-3">Non-Credit Services</h4>
+            <p className="text-xs text-gray-400 leading-relaxed">
+              All non-credit services offered by GMG Financial Services are conducted under a separate licence or registration. 
+              These services are not authorised under Australian Credit Licence 389328.
+            </p>
+          </div>
+
+          {/* Bottom Bar */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="footer-copyright">
-              © 2024 Finance Broker. All rights reserved.
+              © 2024 GMG Financial Services. All rights reserved.
             </p>
             <div className="flex items-center gap-6 footer-copyright">
               <span>20+ Years Experience</span>

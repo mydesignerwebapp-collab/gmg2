@@ -5,18 +5,18 @@ import { Footer } from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   title: "Is Now the Right Time to Refinance? Here's What Australian Homeowners Need to Know in 2025 | GMG Financial Services Melbourne",
-  description: "Discover if refinancing your home loan in 2025 is the right move. Expert insights on interest rates, costs, benefits, and timing for Australian homeowners and investors.",
+  description: "Discover if refinancing your home loan in 2025 is the right move. Professional insights on interest rates, costs, benefits, and timing for Australian homeowners and investors.",
   keywords: 'refinance home loan, mortgage refinancing, interest rates 2025, home loan comparison, mortgage broker Melbourne, refinancing costs, equity access, GMG Financial Services',
   openGraph: {
     title: "Is Now the Right Time to Refinance? Here's What Australian Homeowners Need to Know in 2025 | GMG Financial Services",
-    description: "Discover if refinancing your home loan in 2025 is the right move. Expert insights on interest rates, costs, benefits, and timing for Australian homeowners and investors.",
+    description: "Discover if refinancing your home loan in 2025 is the right move. Professional insights on interest rates, costs, benefits, and timing for Australian homeowners and investors.",
     type: 'article',
     locale: 'en_AU',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Is Now the Right Time to Refinance? Here's What Australian Homeowners Need to Know in 2025 | GMG Financial Services",
-    description: "Discover if refinancing your home loan in 2025 is the right move. Expert insights on interest rates, costs, benefits, and timing for Australian homeowners and investors.",
+    description: "Discover if refinancing your home loan in 2025 is the right move. Professional insights on interest rates, costs, benefits, and timing for Australian homeowners and investors.",
   },
   alternates: {
     canonical: 'https://gmgfinancial.com.au/news/is-now-the-right-time-to-refinance',
@@ -69,7 +69,7 @@ export default function RefinanceArticle() {
               
               {/* Subtitle */}
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-light mb-8">
-                With interest rates stabilising and property prices climbing, discover whether refinancing your home loan could save you thousands and unlock new financial opportunities.
+                With interest rates stabilising and property prices climbing, discover whether refinancing your home loan may result in significant savings and unlock new financial opportunities.
               </p>
 
               {/* Author Info */}
@@ -144,7 +144,7 @@ export default function RefinanceArticle() {
                     <h3 className="text-lg font-semibold text-[#1f2937]">Comparison is Key</h3>
                   </div>
                   <p className="text-base text-gray-700">
-                    Use a mortgage broker or comparison service to evaluate fixed vs variable rates. Your current bank may not be offering you the best deal available in the market.
+                    Use a mortgage broker or comparison service to evaluate fixed vs variable rates. Your current bank may not be offering you the most suitable solution available in the market.
                   </p>
                 </div>
 
@@ -323,12 +323,12 @@ export default function RefinanceArticle() {
                   className="w-full h-64 object-cover rounded-xl shadow-md"
                 />
                 <figcaption className="text-sm text-gray-500 mt-3 text-center">
-                  Expert guidance can help you navigate the refinancing process smoothly
+                  Professional guidance can help you navigate the refinancing process smoothly
                 </figcaption>
               </figure>
 
               <p className="text-base leading-relaxed text-gray-700 mb-8">
-                At GMG Financial Services, we help our clients review their loans and negotiate directly with lenders to get the best outcome — often with zero paperwork stress for you.
+                At GMG Financial Services, we help our clients review their loans and negotiate directly with lenders to get the most suitable outcome — often with a streamlined paperwork process for you.
               </p>
 
               <div className="border border-gray-300 p-8 rounded-2xl mb-12">
@@ -359,7 +359,7 @@ export default function RefinanceArticle() {
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-teal-500 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">Regular loan reviews to ensure you always have the best deal</span>
+                      <span className="text-gray-700">Regular loan reviews to ensure you always have the most suitable solution</span>
                     </li>
                   </ul>
                 </div>

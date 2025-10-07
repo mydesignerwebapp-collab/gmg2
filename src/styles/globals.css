@@ -53,6 +53,24 @@
     @apply bg-white text-black hover:bg-gray-100 font-medium uppercase tracking-wider transition-all duration-300;
   }
 
+  /* Horizontal scroll utilities for mobile */
+  .h-scroll {
+    @apply flex gap-4 overflow-x-auto overflow-y-visible snap-x snap-mandatory; /* base flex row */
+    scroll-padding-left: 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .h-scroll::-webkit-scrollbar { display: none; }
+  .h-scroll-item {
+    @apply shrink-0 snap-start;
+  }
+  .h-scroll-cue {
+    @apply pointer-events-none absolute right-0 top-0 h-full w-8 bg-gradient-to-l from-white to-transparent hidden;
+  }
+  @media (max-width: 768px) {
+    .h-scroll-reveal-next { padding-right: 2.5rem; } /* reveals next card hint */
+    .h-scroll-cue { @apply block; }
+  }
+
   /* TYPOGRAPHY COMPONENTS - Easy to override for specific sections */
   
   /* Hero Section Typography */

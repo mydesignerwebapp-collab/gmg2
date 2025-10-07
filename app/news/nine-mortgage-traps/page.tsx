@@ -5,18 +5,18 @@ import { Footer } from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   title: 'Nine Mortgage Traps That Could Derail Your Property Investment Strategy | GMG Financial Services Melbourne',
-  description: 'Discover the nine common mortgage traps that could quietly erode your property investment returns. Expert financial advice from GMG Financial Services in Melbourne.',
+  description: 'Discover the nine common mortgage traps that could quietly erode your property investment returns. Professional financial advice from GMG Financial Services in Melbourne.',
   keywords: 'mortgage traps, property investment strategy, investment property loans, mortgage structuring, property portfolio, Melbourne financial advisor, mortgage broker Melbourne, GMG Financial Services',
   openGraph: {
     title: 'Nine Mortgage Traps That Could Derail Your Property Investment Strategy | GMG Financial Services',
-    description: 'Discover the nine common mortgage traps that could quietly erode your property investment returns. Expert financial advice from Melbourne-based GMG Financial Services.',
+    description: 'Discover the nine common mortgage traps that could quietly erode your property investment returns. Professional financial advice from Melbourne-based GMG Financial Services.',
     type: 'article',
     locale: 'en_AU',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Nine Mortgage Traps That Could Derail Your Property Investment Strategy | GMG Financial Services',
-    description: 'Discover the nine common mortgage traps that could quietly erode your property investment returns. Expert financial advice from Melbourne-based GMG Financial Services.',
+    description: 'Discover the nine common mortgage traps that could quietly erode your property investment returns. Professional financial advice from Melbourne-based GMG Financial Services.',
   },
   alternates: {
     canonical: 'https://gmgfinancial.com.au/news/nine-mortgage-traps',
@@ -268,7 +268,7 @@ export default function NineMortgageTrapsArticle() {
               </figure>
 
               <h3 className="text-xl font-heading font-light text-[#1f2937] mb-6">
-                Expert Mortgage Structuring in Melbourne
+                Professional Mortgage Structuring in Melbourne
               </h3>
               
               <p className="text-base leading-relaxed text-gray-700 mb-8">
@@ -307,7 +307,7 @@ export default function NineMortgageTrapsArticle() {
                 <h3 className="text-xl font-heading font-light mb-4">Ready to Optimize Your Mortgage Structure?</h3>
                 <p className="text-base mb-8 opacity-90">
                   Don't let mortgage traps undermine your property investment returns. Contact GMG Financial Services 
-                  today for expert mortgage structuring advice.
+                  today for professional mortgage structuring advice.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a 

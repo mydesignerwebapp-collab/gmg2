@@ -5,18 +5,18 @@ import { Footer } from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   title: "Melbourne’s Property Market Revives—What First Home Buyers & Investors Must Know | GMG Financial Services Melbourne",
-  description: "Melbourne’s housing market is rebounding. Discover the latest trends, price growth, and what buyers and investors need to know in 2025. Expert insights from GMG Financial Services.",
+  description: "Melbourne’s housing market is rebounding. Discover the latest trends, price growth, and what buyers and investors need to know in 2025. Professional insights from GMG Financial Services.",
   keywords: 'Melbourne property market, property revival, first home buyers, property investors, PropTrack data, Melbourne house prices, GMG Financial Services, 2025 property trends',
   openGraph: {
     title: "Melbourne’s Property Market Revives—What First Home Buyers & Investors Must Know | GMG Financial Services",
-    description: "Melbourne’s housing market is rebounding. Discover the latest trends, price growth, and what buyers and investors need to know in 2025. Expert insights from GMG Financial Services.",
+    description: "Melbourne’s housing market is rebounding. Discover the latest trends, price growth, and what buyers and investors need to know in 2025. Professional insights from GMG Financial Services.",
     type: 'article',
     locale: 'en_AU',
   },
   twitter: {
     card: 'summary_large_image',
     title: "Melbourne’s Property Market Revives—What First Home Buyers & Investors Must Know | GMG Financial Services",
-    description: "Melbourne’s housing market is rebounding. Discover the latest trends, price growth, and what buyers and investors need to know in 2025. Expert insights from GMG Financial Services.",
+    description: "Melbourne’s housing market is rebounding. Discover the latest trends, price growth, and what buyers and investors need to know in 2025. Professional insights from GMG Financial Services.",
   },
   alternates: {
     canonical: 'https://gmgfinancial.com.au/news/melbourne-property-market-revives',
@@ -114,7 +114,7 @@ export default function MelbournePropertyMarketRevives() {
               <div className="border border-gray-300 p-6 rounded-xl mb-8">
                 <h3 className="text-lg font-semibold text-[#1f2937] mb-3 flex items-center gap-2">📈 Price Momentum</h3>
                 <p className="text-base text-gray-700">
-                  While year‑on‑year growth remains modest (just 0.6%), Melbourne is catching up fast—even if it's still behind cities like Sydney and Brisbane (<a href="https://www.theaustralian.com.au/subscribe/news/1/?sourceCode=TAWEB_WRE170_a_GPT&dest=https%3A%2F%2Fwww.theaustralian.com.au%2Fwealth%2Fproperty-investing%2Fmelbournes-longawaited-property-revival-begins-but-it-has-a-long-way-to-go%2Fnews-story%2F21612bf69d35dae8b01b977d2f110adb&memtype=anonymous&mode=premium&v21=HIGH-Segment-1-SCORE&V21spcbehaviour=append" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline font-medium">The Australian</a>, <a href="https://www.axtonfinance.com.au/blog/whats-behind-melbournes-rising-property-prices-and-what-buyers-need-to-know/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline font-medium">Axton Finance</a>, <a href="https://www.realestate.com.au/news/melbourne-home-prices-surge-more-than-any-capital-city-so-far-in-2025-proptrack/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline font-medium">realestate.com.au</a>).
+                  While year‑on‑year growth remains modest (just 0.6%), Melbourne is catching up quickly—even if it's still behind cities like Sydney and Brisbane (<a href="https://www.theaustralian.com.au/subscribe/news/1/?sourceCode=TAWEB_WRE170_a_GPT&dest=https%3A%2F%2Fwww.theaustralian.com.au%2Fwealth%2Fproperty-investing%2Fmelbournes-longawaited-property-revival-begins-but-it-has-a-long-way-to-go%2Fnews-story%2F21612bf69d35dae8b01b977d2f110adb&memtype=anonymous&mode=premium&v21=HIGH-Segment-1-SCORE&V21spcbehaviour=append" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline font-medium">The Australian</a>, <a href="https://www.axtonfinance.com.au/blog/whats-behind-melbournes-rising-property-prices-and-what-buyers-need-to-know/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline font-medium">Axton Finance</a>, <a href="https://www.realestate.com.au/news/melbourne-home-prices-surge-more-than-any-capital-city-so-far-in-2025-proptrack/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline font-medium">realestate.com.au</a>).
                 </p>
                 <p className="text-base text-gray-700 mt-4">
                   Inner-city areas like Yarra and middle-ring suburbs like Brimbank have seen particularly strong activity post-rate cuts (<a href="https://www.realestate.com.au/news/sydney-and-melbourne-inner-and-middle-suburbs-gain-traction-in-rate-cut-anticipation/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline font-medium">realestate.com.au</a>).

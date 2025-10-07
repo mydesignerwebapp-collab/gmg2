@@ -36,7 +36,7 @@ const LatestNewsSection = ({
       summary:
         "Major Australian banks have announced significant rate cuts in anticipation of the Reserve Bank's upcoming decision, creating new opportunities for borrowers.",
       url: "#",
-      image: "/images/111.png",
+      image: "data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'800\'><rect width=\'1200\' height=\'800\' fill=\'#FFFFFF\'/></svg>')}",
     },
     {
       id: "item-2",
@@ -44,7 +44,7 @@ const LatestNewsSection = ({
       summary:
         "Discover the common pitfalls that property investors face and learn how to navigate the complex mortgage landscape to protect your investment portfolio.",
       url: "#",
-      image: "/images/222.png",
+      image: "data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'800\'><rect width=\'1200\' height=\'800\' fill=\'#FFFFFF\'/></svg>')}",
     },
     {
       id: "item-3",
@@ -52,7 +52,7 @@ const LatestNewsSection = ({
       summary:
         "The Melbourne property market shows signs of recovery with increased buyer activity and improved market conditions across key suburbs.",
       url: "#",
-      image: "/images/333.png",
+      image: "data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'800\'><rect width=\'1200\' height=\'800\' fill=\'#FFFFFF\'/></svg>')}",
     },
     {
       id: "item-4",
@@ -60,7 +60,7 @@ const LatestNewsSection = ({
       summary:
         "With changing market conditions and new loan products available, we analyze whether refinancing could benefit your current financial situation.",
       url: "#",
-      image: "/images/444.png",
+      image: "data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'800\'><rect width=\'1200\' height=\'800\' fill=\'#FFFFFF\'/></svg>')}",
     },
     {
       id: "item-5",
@@ -68,7 +68,7 @@ const LatestNewsSection = ({
       summary:
         "Essential advice for first-time homebuyers to navigate the complex process of purchasing their first property with confidence and financial security.",
       url: "#",
-      image: "/images/555.png",
+      image: "data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'800\'><rect width=\'1200\' height=\'800\' fill=\'#FFFFFF\'/></svg>')}",
     },
   ],
 }: LatestNewsSectionProps) => {
@@ -108,8 +108,7 @@ const LatestNewsSection = ({
           </div>
           <div className="mt-8 flex shrink-0 items-center justify-start gap-2">
             <Button
-              size="icon"
-              variant="outline"
+              size="sm"
               onClick={() => {
                 carouselApi?.scrollPrev()
               }}
@@ -119,8 +118,7 @@ const LatestNewsSection = ({
               <ArrowLeft className="size-5" />
             </Button>
             <Button
-              size="icon"
-              variant="outline"
+              size="sm"
               onClick={() => {
                 carouselApi?.scrollNext()
               }}
@@ -131,6 +129,11 @@ const LatestNewsSection = ({
             </Button>
           </div>
         </motion.div>
+      </div>
+      {/* Mobile swipe hint */}
+      <div className="md:hidden px-8 -mt-2 mb-2 flex items-center gap-2 text-xs text-gray-500">
+        <span>Swipe</span>
+        <ArrowRight className="h-4 w-4" />
       </div>
       <div className="w-full">
         <Carousel
@@ -156,16 +159,15 @@ const LatestNewsSection = ({
                   transition={{ duration: 0.6 }}
                 >
                   <div>
-                    <div className="flex aspect-[3/2] overflow-clip rounded-xl">
-                      <div className="flex-1">
-                        <div className="relative h-full w-full origin-bottom transition duration-300 group-hover:scale-105">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="h-full w-full object-cover object-center"
-                          />
-                        </div>
-                      </div>
+                    <div className="relative aspect-[3/2] overflow-hidden rounded-xl">
+                      <div className="absolute inset-0 bg-white" />
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="h-full w-full object-cover object-center opacity-0"
+                      />
+                      {/* Effects: subtle parallax on hover + focus ring */}
+                      <div className="absolute inset-0 transition-transform duration-500 group-hover:translate-y-[-4px]" />
                     </div>
                   </div>
                   <div className="mb-8 line-clamp-2 text-base text-gray-600 md:mb-12 md:text-lg lg:mb-9">

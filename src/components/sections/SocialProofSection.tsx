@@ -40,13 +40,13 @@ export function SocialProofSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         >
           {socialProofData.map((item, index) => {
             const count = useCountUp({
               end: item.value,
-              delay: index * 200,
-              duration: 2500,
+              delay: 500 + (index * 300),
+              duration: 3500,
             })
             
             const displayValue = useTransform(count, (latest) => 
@@ -60,7 +60,7 @@ export function SocialProofSection() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.8, delay: 0.5 + (index * 0.15) }}
               >
                 <motion.h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-2">
                   <motion.span>{displayValue}</motion.span>

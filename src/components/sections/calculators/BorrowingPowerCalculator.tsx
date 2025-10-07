@@ -350,6 +350,16 @@ export function BorrowingPowerCalculator() {
         </div>
       </div>
 
+      {/* Calculator Disclaimer */}
+      <div className="border-t border-gray-200 pt-6 mt-8">
+        <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
+          <h5 className="text-sm font-semibold text-amber-800 mb-2">Important Disclaimer</h5>
+          <p className="text-sm text-amber-700">
+            Calculators are illustrative only and calculated based on the accuracy of the information entered by you. They are not a guarantee of an offer or acceptance of loan eligibility.
+          </p>
+        </div>
+      </div>
+
       {/* Data Source */}
       <div className="border-t border-gray-200 pt-6 mt-8">
         <div className="bg-teal-500 p-4 rounded-lg">
