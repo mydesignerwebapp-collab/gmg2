@@ -19,10 +19,26 @@ const navigation = [
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 100)
+      
+      // Update active section based on scroll position
+      const sections = navigation.map(item => item.href.substring(1))
+      const currentSection = sections.find(section => {
+        const element = document.querySelector(`#${section}`)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          return rect.top <= 100 && rect.bottom >= 100
+        }
+        return false
+      })
+      
+      if (currentSection) {
+        setActiveSection(currentSection)
+      }
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -42,39 +58,55 @@ export function Navigation() {
   }
 
   return (
-    <nav className={cn(
-      'fixed top-0 w-full z-50 transition-all duration-300',
-      scrolled 
-        ? 'bg-black/50 backdrop-blur-md shadow-lg' 
-        : 'bg-transparent'
-    )}>
-      <div className="container-custom">
+    <>
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-teal-500 text-white px-4 py-2 rounded z-[60] transition-all"
+      >
+        Skip to main content
+      </a>
+      
+      <nav className={cn(
+        'fixed top-0 w-full z-50 transition-all duration-300',
+        scrolled 
+          ? 'bg-black/50 backdrop-blur-md shadow-lg' 
+          : 'bg-transparent'
+      )}>
+        <div className="container-custom">
         {/* Main navigation */}
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <h1 className="text-heading-sm font-semibold text-white">
+          <Link href="/" className="flex items-center" aria-label="GMG Financial Services homepage">
+            <h1 className="text-md font-semibold text-white">
               GMG Financial Services
             </h1>
           </Link>
 
           {/* Desktop navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8" role="navigation" aria-label="Main navigation">
             {navigation.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="text-white text-ui font-medium uppercase tracking-wider transition-colors duration-300 hover:text-teal-300"
+                className={cn(
+                  "text-sm font-medium uppercase tracking-wider transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-teal-300 focus:ring-offset-2 focus:ring-offset-transparent rounded px-2 py-1",
+                  activeSection === item.href.substring(1)
+                    ? "text-teal-300 font-semibold"
+                    : "text-white hover:text-teal-300"
+                )}
+                aria-current={activeSection === item.href.substring(1) ? "page" : undefined}
+                aria-label={`Navigate to ${item.name} section`}
               >
                 {item.name}
               </button>
             ))}
-          </div>
+          </nav>
 
           {/* Mobile menu button */}
           <button
             type="button"
-            className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-white hover:text-teal-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500"
+            className="lg:hidden touch-target rounded-md text-white hover:text-teal-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-label="Toggle navigation menu"
@@ -101,21 +133,24 @@ export function Navigation() {
           >
             <div className="container-custom py-4 space-y-4">
               {/* Mobile navigation links */}
-              <div className="flex flex-col gap-4">
+              <nav className="flex flex-col gap-4" role="navigation" aria-label="Mobile navigation">
                 {navigation.map((item) => (
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
-                    className="text-left text-ui font-medium uppercase tracking-wider text-white hover:text-teal-300 transition-colors py-2"
+                    className="text-left text-sm font-medium uppercase tracking-wider text-white hover:text-teal-300 transition-colors touch-target focus:outline-none focus:ring-2 focus:ring-teal-300 focus:ring-offset-2 focus:ring-offset-gray-950 rounded px-2"
+                    aria-current={activeSection === item.href.substring(1) ? "page" : undefined}
+                    aria-label={`Navigate to ${item.name} section`}
                   >
                     {item.name}
                   </button>
                 ))}
-              </div>
+              </nav>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+      </nav>
+    </>
   )
 } 

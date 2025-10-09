@@ -35,13 +35,13 @@ const DEFAULT_IMAGES = [
 ];
 
 const IMAGE_STYLES = [
-	"w-[25vw] h-[25vh]",
-	"w-[35vw] h-[30vh] -top-[30vh] left-[5vw]",
-	"w-[20vw] h-[55vh] -top-[15vh] -left-[25vw]",
-	"w-[25vw] h-[25vh] left-[27.5vw]",
-	"w-[20vw] h-[30vh] top-[30vh] left-[5vw]",
-	"w-[30vw] h-[25vh] top-[27.5vh] -left-[22.5vw]",
-	"w-[15vw] h-[15vh] top-[22.5vh] left-[25vw]",
+	"w-48 h-32 sm:w-[25vw] sm:h-[25vh]",
+	"w-56 h-40 sm:w-[35vw] sm:h-[30vh] sm:-top-[30vh] sm:left-[5vw] -top-20 left-4",
+	"w-40 h-64 sm:w-[20vw] sm:h-[55vh] sm:-top-[15vh] sm:-left-[25vw] -top-8 -left-16",
+	"w-48 h-32 sm:w-[25vw] sm:h-[25vh] sm:left-[27.5vw] left-32",
+	"w-40 h-40 sm:w-[20vw] sm:h-[30vh] sm:top-[30vh] sm:left-[5vw] top-40 left-4",
+	"w-52 h-32 sm:w-[30vw] sm:h-[25vh] sm:top-[27.5vh] sm:-left-[22.5vw] top-36 -left-12",
+	"w-32 h-24 sm:w-[15vw] sm:h-[15vh] sm:top-[22.5vh] sm:left-[25vw] top-32 left-24",
 ];
 
 // Per-card content (for indices 1..6)
@@ -281,7 +281,7 @@ function GalleryStatCard({ content, size = 'md' }: { content: { number: string; 
         <AnimatedCard className="w-full h-full" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
             <CardVisual className="w-full h-full">
                 <div className="absolute inset-0">
-                    <Layer1 hovered={hovered} color={content.main} secondaryColor={content.secondary} target={content.targetPct} size={size} />
+                    <Layer1 hovered={hovered} color={content.main} secondaryColor={content.secondary} target={content.targetPct} />
                     <LayerBgGradient color={content.main} />
                     <GridLayer color="#80808015" />
                 </div>
@@ -325,7 +325,7 @@ function Layer1({ hovered, color, secondaryColor, target = 66 }: LayerProps & { 
             if (i >= steps) clearInterval(id);
         }, 16);
         return () => clearInterval(id);
-    }, [hovered, target]);
+    }, [hovered, target, mainProgress, secondaryProgress]);
     const radius = 22;
     const c = 2 * Math.PI * radius;
     const d1 = c - (mainProgress / 100) * c;

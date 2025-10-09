@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { cn } from '@/lib/utils'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -16,14 +16,39 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     loading = false,
     disabled,
     children, 
+    onClick,
     ...props 
   }, ref) => {
-    const baseClasses = 'inline-flex items-center justify-center text-ui font-medium uppercase tracking-wider transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed rounded'
+    const [ripples, setRipples] = useState<Array<{ id: number; x: number; y: number }>>([])
+    
+    const baseClasses = 'inline-flex items-center justify-center text-sm font-medium uppercase tracking-wider transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed rounded relative overflow-hidden'
     
     const sizes = {
-      sm: 'px-4 py-2 text-ui-sm',
-      md: 'px-6 py-3 text-ui',
-      lg: 'px-8 py-4 text-ui-lg'
+      sm: 'px-4 py-2 text-xs',
+      md: 'px-6 py-3 text-sm',
+      lg: 'px-8 py-4 text-base'
+    }
+    
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (disabled || loading) return
+      
+      // Create ripple effect
+      const rect = e.currentTarget.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      const newRipple = { id: Date.now(), x, y }
+      
+      setRipples(prev => [...prev, newRipple])
+      
+      // Remove ripple after animation
+      setTimeout(() => {
+        setRipples(prev => prev.filter(ripple => ripple.id !== newRipple.id))
+      }, 600)
+      
+      // Call original onClick
+      if (onClick) {
+        onClick(e)
+      }
     }
     
     return (
@@ -32,12 +57,26 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           baseClasses,
           sizes[size],
           fullWidth && 'w-full',
+          loading && 'btn-loading',
           className
         )}
         ref={ref}
         disabled={disabled || loading}
+        onClick={handleClick}
         {...props}
       >
+        {/* Ripple effects */}
+        {ripples.map(ripple => (
+          <span
+            key={ripple.id}
+            className="btn-ripple"
+            style={{
+              left: ripple.x,
+              top: ripple.y,
+            }}
+          />
+        ))}
+        
         {loading && (
           <svg
             className="animate-spin -ml-1 mr-3 h-5 w-5"

@@ -152,7 +152,7 @@ const LatestNewsSection = ({
               <CarouselItem key={item.id} className="pl-4 md:max-w-[452px]">
                 <motion.a
                   href={item.id === "item-1" ? "/news/big-4-banks-slash-rates" : item.id === "item-2" ? "/news/nine-mortgage-traps" : item.id === "item-3" ? "/news/melbourne-property-market-revives" : item.id === "item-4" ? "/news/is-now-the-right-time-to-refinance" : item.id === "item-5" ? "/news/5-key-financial-planning-tips-first-home-buyers" : item.url}
-                  className="group flex flex-col justify-between"
+                  className="group flex flex-col justify-between card-hover"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

@@ -28,9 +28,53 @@ export function Contact2({
 }: Contact2Props) {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [submitSuccess, setSubmitSuccess] = React.useState(false)
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  })
+  const [errors, setErrors] = React.useState<Record<string, string>>({})
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {}
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required'
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required'
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email'
+    }
+    
+    if (!formData.service) {
+      newErrors.service = 'Please select a service'
+    }
+    
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }))
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    if (!validateForm()) {
+      return
+    }
+    
     setIsSubmitting(true)
     
     // Simulate API call
@@ -38,6 +82,7 @@ export function Contact2({
     
     setIsSubmitting(false)
     setSubmitSuccess(true)
+    setFormData({ name: '', email: '', phone: '', service: '', message: '' })
     
     // Reset success message after 5 seconds
     setTimeout(() => setSubmitSuccess(false), 5000)
@@ -156,52 +201,82 @@ export function Contact2({
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
+                  <div className="form-group space-y-2">
                     <Label htmlFor="name" className="text-sm font-semibold text-[#1f2937] uppercase tracking-wider">
                       Name *
                     </Label>
                     <Input
                       id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                       placeholder="Enter your name"
-                      className="border-gray-300 focus:border-teal-500 focus:ring-teal-500"
+                      className={`form-input ${errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-300 focus:border-teal-500 focus:ring-teal-500'}`}
                       required
                     />
+                    {errors.name && (
+                      <motion.p 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-500 text-sm"
+                      >
+                        {errors.name}
+                      </motion.p>
+                    )}
                   </div>
                   
-                  <div className="space-y-2">
+                  <div className="form-group space-y-2">
                     <Label htmlFor="email" className="text-sm font-semibold text-[#1f2937] uppercase tracking-wider">
                       Email *
                     </Label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="Enter your email"
-                      className="border-gray-300 focus:border-teal-500 focus:ring-teal-500"
+                      className={`form-input ${errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-300 focus:border-teal-500 focus:ring-teal-500'}`}
                       required
                     />
+                    {errors.email && (
+                      <motion.p 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-500 text-sm"
+                      >
+                        {errors.email}
+                      </motion.p>
+                    )}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
+                  <div className="form-group space-y-2">
                     <Label htmlFor="phone" className="text-sm font-semibold text-[#1f2937] uppercase tracking-wider">
                       Phone
                     </Label>
                     <Input
                       id="phone"
+                      name="phone"
                       type="tel"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                       placeholder="Enter your phone"
-                      className="border-gray-300 focus:border-teal-500 focus:ring-teal-500"
+                      className="form-input border-gray-300 focus:border-teal-500 focus:ring-teal-500"
                     />
                   </div>
                   
-                  <div className="space-y-2">
+                  <div className="form-group space-y-2">
                     <Label htmlFor="service" className="text-sm font-semibold text-[#1f2937] uppercase tracking-wider">
                       Service Required *
                     </Label>
                     <select
                       id="service"
-                      className="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm ring-offset-background focus:border-teal-500 focus:ring-teal-500 focus:ring-2 focus:ring-offset-2"
+                      name="service"
+                      value={formData.service}
+                      onChange={handleInputChange}
+                      className={`form-select ${errors.service ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-300 focus:border-teal-500 focus:ring-teal-500'}`}
                       required
                     >
                       <option value="">Select a service</option>
@@ -212,17 +287,29 @@ export function Contact2({
                       <option value="health-check">Financial Health Check</option>
                       <option value="consultation">Consultation & Ongoing Advice</option>
                     </select>
+                    {errors.service && (
+                      <motion.p 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-500 text-sm"
+                      >
+                        {errors.service}
+                      </motion.p>
+                    )}
                   </div>
                 </div>
 
-                <div className="space-y-2">
+                <div className="form-group space-y-2">
                   <Label htmlFor="message" className="text-sm font-semibold text-[#1f2937] uppercase tracking-wider">
                     Message
                   </Label>
                   <Textarea
                     id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="Tell us about your financial goals and how we can help..."
-                    className="border-gray-300 focus:border-teal-500 focus:ring-teal-500 min-h-[120px]"
+                    className="form-textarea border-gray-300 focus:border-teal-500 focus:ring-teal-500 min-h-[120px]"
                   />
                 </div>
 

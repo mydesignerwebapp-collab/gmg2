@@ -32,6 +32,8 @@ export function LoanRepaymentCalculator() {
   })
 
   const [results, setResults] = useState<LoanRepaymentResults | null>(null)
+  const [isCalculating, setIsCalculating] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   // Calculate loan repayments using standard amortization formula
   const calculateLoanRepayment = (form: LoanRepaymentForm): LoanRepaymentResults => {
@@ -83,12 +85,43 @@ export function LoanRepaymentCalculator() {
 
   useEffect(() => {
     if (form.loanAmount && form.interestRate && form.loanTerm) {
-      try {
-        const calculatedResults = calculateLoanRepayment(form)
-        setResults(calculatedResults)
-      } catch (error) {
-        setResults(null)
+      setIsCalculating(true)
+      setError(null)
+      
+      // Add small delay to show loading state
+      const calculateAsync = async () => {
+        try {
+          await new Promise(resolve => setTimeout(resolve, 300))
+          
+          const loanAmount = parseFloat(form.loanAmount)
+          const interestRate = parseFloat(form.interestRate)
+          const loanTerm = parseFloat(form.loanTerm)
+          
+          // Validation
+          if (loanAmount <= 0) throw new Error('Loan amount must be greater than 0')
+          if (interestRate < 0 || interestRate > 20) throw new Error('Interest rate must be between 0% and 20%')
+          if (loanTerm <= 0 || loanTerm > 50) throw new Error('Loan term must be between 1 and 50 years')
+          
+          const calculatedResults = calculateLoanRepayment(form)
+          
+          if (!isFinite(calculatedResults.periodicRepayment)) {
+            throw new Error('Invalid calculation result. Please check your inputs.')
+          }
+          
+          setResults(calculatedResults)
+        } catch (err) {
+          setError(err instanceof Error ? err.message : 'Calculation error occurred')
+          setResults(null)
+        } finally {
+          setIsCalculating(false)
+        }
       }
+      
+      calculateAsync()
+    } else {
+      setResults(null)
+      setError(null)
+      setIsCalculating(false)
     }
   }, [form])
 
@@ -195,7 +228,30 @@ export function LoanRepaymentCalculator() {
         <div className="space-y-6">
           <h4 className="text-lg font-semibold text-gray-900 mb-4">Results</h4>
           
-          {results ? (
+          {error ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-error-50 border border-error-200 p-4 rounded-lg"
+            >
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-5 h-5 bg-error-500 rounded-full flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">!</span>
+                </div>
+                <h5 className="text-sm font-semibold text-error-800">Calculation Error</h5>
+              </div>
+              <p className="text-sm text-error-700">{error}</p>
+            </motion.div>
+          ) : isCalculating ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-gray-50 p-8 rounded-lg text-center"
+            >
+              <div className="animate-spin h-8 w-8 border-4 border-teal-500 border-t-transparent rounded-full mx-auto mb-4"></div>
+              <p className="text-gray-600">Calculating your loan repayments...</p>
+            </motion.div>
+          ) : results ? (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

@@ -2,7 +2,7 @@ import { Navigation } from '@/components/layout/Navigation'
 import { HeroSection } from '@/components/sections/HeroSection'
 import { SocialProofSection } from '@/components/sections/SocialProofSection'
 import { ServicesSection } from '@/components/sections/ServicesSection'
-import { FAQSection } from '@/components/sections/NewsSection'
+import { FAQSection } from '@/components/sections/FAQSection'
 import { AboutSection } from '@/components/sections/AboutSection'
 import { BreakSection } from '@/components/sections/BreakSection'
 import { CalculatorBreakSection } from '@/components/sections/CalculatorBreakSection'
@@ -15,7 +15,7 @@ import { Footer } from '@/components/layout/Footer'
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen">
       <Navigation />
       <HeroSection />
       <SocialProofSection />
