@@ -6,7 +6,7 @@ import { FAQSection } from '@/components/sections/FAQSection'
 import { AboutSection } from '@/components/sections/AboutSection'
 import { BreakSection } from '@/components/sections/BreakSection'
 import { CalculatorBreakSection } from '@/components/sections/CalculatorBreakSection'
-import ImmersiveScrollGallery from '@/components/ui/immersive-scroll-gallery'
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { FeatureSection } from '@/components/sections/FeatureSection'
 import { LatestNewsSection } from '@/components/sections/LatestNewsSection'
 import { QuoteSection } from '@/components/sections/QuoteSection'
@@ -22,7 +22,7 @@ export default function HomePage() {
       <ServicesSection />
       <AboutSection />
       <BreakSection />
-      <ImmersiveScrollGallery />
+      <TestimonialsSection />
       <CalculatorBreakSection />
       <FeatureSection />
       <LatestNewsSection />
