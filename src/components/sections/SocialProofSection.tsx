@@ -65,14 +65,14 @@ export function SocialProofSection() {
   const counts = [displayValue1, displayValue2, displayValue3, displayValue4]
 
   return (
-    <section className="py-12 bg-teal-500">
+    <section className="section-spacing bg-teal-500">
       <div className="container-custom">
         <motion.div
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-8 xl:gap-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.8 }}
         >
           {socialProofData.map((item, index) => (
             <motion.div
@@ -81,13 +81,13 @@ export function SocialProofSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5 + (index * 0.15) }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <motion.h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-2">
+              <motion.h3 className="text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight mb-3">
                 <motion.span>{counts[index]}</motion.span>
                 <span>{item.suffix}</span>
               </motion.h3>
-              <p className="social-proof-label">
+              <p className="text-sm xl:text-base font-medium text-white/90">
                 {item.label}
               </p>
             </motion.div>

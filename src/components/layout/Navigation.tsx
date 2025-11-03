@@ -11,7 +11,7 @@ const navigation = [
   { name: 'Services', href: '#services' },
   { name: 'Calculators', href: '#calculators' },
   { name: 'About', href: '#about' },
-  { name: 'Latest News', href: '#latest-news' },
+  { name: 'News', href: '#latest-news' },
   { name: 'FAQ', href: '#faq' },
   { name: 'Contact', href: '#contact' },
 ]
@@ -76,8 +76,8 @@ export function Navigation() {
         <div className="container-custom">
         <div className="flex items-center justify-between py-5">
           <Link href="/" className="flex items-center group" aria-label="GMG Financial Services homepage">
-            <h1 className="text-lg font-Poppins font-bold text-white transition-colors group-hover:text-teal-300">
-              GMG Financial Services
+            <h1 className="text-xl xl:text-2xl font-bold text-white transition-colors group-hover:text-teal-500">
+              GMG
             </h1>
           </Link>
 

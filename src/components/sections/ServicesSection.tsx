@@ -3,8 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Home, TrendingUp, Building2, ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button-masco'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card-masco'
+import { Button } from '@/components/ui/Button'
 import { scrollToSection } from '@/lib/utils'
 
 const services = [
@@ -54,60 +53,60 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="section-padding bg-white">
+    <section id="services" className="section-spacing bg-ColorOffWhite">
       <div className="container-custom">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10 xl:mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="section-heading leading-snug mb-6">
+          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-ColorBlack mb-4">
             Our core services
           </h2>
-          <p className="section-description leading-relaxed max-w-3xl mx-auto">
+          <p className="text-sm xl:text-base text-ColorBlack/70 max-w-2xl mx-auto">
             Supporting individuals, families, and business owners with clear, practical financial advice
           </p>
         </motion.div>
 
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
+              className="card-masco text-center group hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="h-full flex flex-col text-center group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                <CardHeader>
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-teal-500 text-white mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="h-10 w-10" />
-                  </div>
-                  <CardTitle className="text-center">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col">
-                  <CardDescription className="leading-relaxed mb-6 text-center">
-                    {service.description}
-                  </CardDescription>
-                  <Button
-                    variant="outline-teal"
-                    size="default"
-                    onClick={() => scrollToSection('#contact')}
-                    className="mt-auto group"
-                  >
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
+              <div className="inline-flex items-center justify-center w-14 h-14 xl:w-16 xl:h-16 rounded-full bg-teal-500 text-white mb-4 group-hover:scale-110 transition-transform duration-300">
+                <service.icon className="h-7 w-7 xl:h-8 xl:w-8" />
+              </div>
+
+              <h3 className="text-lg xl:text-xl font-semibold text-ColorBlack mb-3">
+                {service.title}
+              </h3>
+
+              <p className="text-sm text-ColorBlack/70 leading-relaxed mb-5">
+                {service.description}
+              </p>
+
+              <Button
+                variant="outline-teal"
+                size="sm"
+                onClick={() => scrollToSection('#contact')}
+                className="group"
+              >
+                Learn More
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
             </motion.div>
           ))}
         </div>
 
         {/* Mobile swipe hint */}
-        <div className="md:hidden px-1 mb-2 flex items-center gap-2 text-xs text-gray-500">
+        <div className="md:hidden px-1 mb-2 flex items-center gap-2 text-xs text-ColorBlack/60">
           <span>Swipe</span>
           <ArrowRight className="h-4 w-4" />
         </div>
@@ -115,57 +114,22 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              className="h-scroll-item w-[80%] max-w-xs mr-4"
+              className="h-scroll-item w-[75%] max-w-xs card-masco text-center mr-3"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="h-full flex flex-col text-center">
-                <CardHeader>
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-teal-500 text-white mb-4 mx-auto">
-                    <service.icon className="h-8 w-8" />
-                  </div>
-                  <CardTitle className="text-center text-lg">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col">
-                  <CardDescription className="text-sm mb-4 text-center">
-                    {service.description}
-                  </CardDescription>
-                  <Button
-                    variant="outline-teal"
-                    size="sm"
-                    onClick={() => scrollToSection('#contact')}
-                    className="mt-auto"
-                  >
-                    Learn More
-                  </Button>
-                </CardContent>
-              </Card>
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-teal-500 text-white mb-3">
+                <service.icon className="h-6 w-6" />
+              </div>
+              <h3 className="text-base font-semibold text-ColorBlack mb-2">{service.title}</h3>
+              <p className="text-xs text-ColorBlack/70 mb-4">{service.description}</p>
+              <Button variant="outline-teal" size="sm" onClick={() => scrollToSection('#contact')}>Learn More</Button>
             </motion.div>
           ))}
           <div className="h-scroll-cue" />
         </div>
-
-        <motion.div
-          className="mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-base">Important Notice</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-sm">
-                All non-credit services offered by GMG Financial Services are conducted under a separate licence or registration.
-                These services are not authorised under Australian Credit Licence 389328.
-              </CardDescription>
-            </CardContent>
-          </Card>
-        </motion.div>
       </div>
     </section>
   )

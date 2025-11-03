@@ -122,14 +122,6 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="mb-8">
-            <h4 className="text-sm font-Poppins font-bold text-white/90 mb-4">Non-Credit Services</h4>
-            <p className="text-xs text-white/60 leading-relaxed">
-              All non-credit services offered by GMG Financial Services are conducted under a separate licence or registration.
-              These services are not authorised under Australian Credit Licence 389328.
-            </p>
-          </div>
-
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-teal-500/10">
             <p className="text-sm text-white/70">
               © 2024 GMG Financial Services. All rights reserved.
