@@ -69,31 +69,29 @@ export function Navigation() {
       
       <nav className={cn(
         'fixed top-0 w-full z-50 transition-all duration-300',
-        scrolled 
-          ? 'bg-black/50 backdrop-blur-md shadow-lg' 
+        scrolled
+          ? 'bg-ColorBlack/95 backdrop-blur-md border-b-2 border-teal-500/20'
           : 'bg-transparent'
       )}>
         <div className="container-custom">
-        {/* Main navigation */}
-        <div className="flex items-center justify-between py-4">
-          {/* Logo */}
-          <Link href="/" className="flex items-center" aria-label="GMG Financial Services homepage">
-            <h1 className="text-md font-semibold text-white">
+        <div className="flex items-center justify-between py-5">
+          <Link href="/" className="flex items-center group" aria-label="GMG Financial Services homepage">
+            <h1 className="text-lg font-Poppins font-bold text-white transition-colors group-hover:text-teal-300">
               GMG Financial Services
             </h1>
           </Link>
 
-          {/* Desktop navigation */}
-          <nav className="hidden lg:flex items-center gap-8" role="navigation" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center gap-3" role="navigation" aria-label="Main navigation">
             {navigation.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
                 className={cn(
-                  "text-sm font-medium uppercase tracking-wider transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-teal-300 focus:ring-offset-2 focus:ring-offset-transparent rounded px-2 py-1",
+                  "text-sm font-medium uppercase tracking-wide transition-all duration-300 rounded-full px-5 py-2.5",
+                  "focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:ring-offset-2 focus:ring-offset-ColorBlack",
                   activeSection === item.href.substring(1)
-                    ? "text-teal-300 font-semibold"
-                    : "text-white hover:text-teal-300"
+                    ? "bg-teal-500 text-white font-semibold"
+                    : "text-white hover:bg-white/10 hover:text-teal-300"
                 )}
                 aria-current={activeSection === item.href.substring(1) ? "page" : undefined}
                 aria-label={`Navigate to ${item.name} section`}
@@ -103,10 +101,9 @@ export function Navigation() {
             ))}
           </nav>
 
-          {/* Mobile menu button */}
           <button
             type="button"
-            className="lg:hidden touch-target rounded-md text-white hover:text-teal-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500 transition-colors"
+            className="lg:hidden touch-target rounded-full p-2 text-white hover:text-teal-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-label="Toggle navigation menu"
@@ -121,7 +118,6 @@ export function Navigation() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -129,16 +125,21 @@ export function Navigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-gray-950 border-t border-gray-800"
+            className="lg:hidden bg-ColorBlack/98 backdrop-blur-md border-t-2 border-teal-500/20"
           >
-            <div className="container-custom py-4 space-y-4">
-              {/* Mobile navigation links */}
-              <nav className="flex flex-col gap-4" role="navigation" aria-label="Mobile navigation">
+            <div className="container-custom py-6 space-y-3">
+              <nav className="flex flex-col gap-3" role="navigation" aria-label="Mobile navigation">
                 {navigation.map((item) => (
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
-                    className="text-left text-sm font-medium uppercase tracking-wider text-white hover:text-teal-300 transition-colors touch-target focus:outline-none focus:ring-2 focus:ring-teal-300 focus:ring-offset-2 focus:ring-offset-gray-950 rounded px-2"
+                    className={cn(
+                      "text-left text-sm font-medium uppercase tracking-wide transition-all duration-300 rounded-full px-5 py-3 touch-target",
+                      "focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:ring-offset-2 focus:ring-offset-ColorBlack",
+                      activeSection === item.href.substring(1)
+                        ? "bg-teal-500 text-white font-semibold"
+                        : "text-white hover:bg-white/10 hover:text-teal-300"
+                    )}
                     aria-current={activeSection === item.href.substring(1) ? "page" : undefined}
                     aria-label={`Navigate to ${item.name} section`}
                   >

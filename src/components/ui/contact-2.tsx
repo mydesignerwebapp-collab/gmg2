@@ -3,10 +3,12 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { Phone, Mail, Globe, Send, CheckCircle } from "lucide-react"
-import { Button } from "@/components/ui/Button"
-import { Input } from "@/components/ui/Input"
-import { Label } from "@/components/ui/Label"
-import { Textarea } from "@/components/ui/Textarea"
+import { Button } from "@/components/ui/button-masco"
+import { Input } from "@/components/ui/input-masco"
+import { Label } from "@/components/ui/label-masco"
+import { Textarea } from "@/components/ui/textarea-masco"
+import { Select } from "@/components/ui/select-masco"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card-masco"
 
 interface Contact2Props {
   title?: string
@@ -106,28 +108,29 @@ export function Contact2({
           </p>
         </motion.div>
 
-                <motion.div
-          className="bg-white rounded-xl shadow-card p-8"
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <Card>
+            <CardContent className="p-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="space-y-8">
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                  <div className="flex-shrink-0 w-14 h-14 bg-teal-500 rounded-full flex items-center justify-center text-white">
                     <Phone className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-[#1f2937] tracking-tight">
+                    <h3 className="text-base font-Poppins font-bold text-ColorBlack">
                       Phone
                     </h3>
                     <a
                       href={`tel:${phone.replace(/\s/g, '')}`}
-                      className="text-gray-600 hover:text-teal-600 transition-colors"
+                      className="text-ColorBlack/70 hover:text-teal-500 transition-colors"
                     >
                       {phone}
                     </a>
@@ -135,16 +138,16 @@ export function Contact2({
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                  <div className="flex-shrink-0 w-14 h-14 bg-teal-500 rounded-full flex items-center justify-center text-white">
                     <Mail className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-[#1f2937] tracking-tight">
+                    <h3 className="text-base font-Poppins font-bold text-ColorBlack">
                       Email
                     </h3>
                     <a
                       href={`mailto:${email}`}
-                      className="text-gray-600 hover:text-teal-600 transition-colors"
+                      className="text-ColorBlack/70 hover:text-teal-500 transition-colors"
                     >
                       {email}
                     </a>
@@ -152,18 +155,18 @@ export function Contact2({
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                  <div className="flex-shrink-0 w-14 h-14 bg-teal-500 rounded-full flex items-center justify-center text-white">
                     <Globe className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-[#1f2937] tracking-tight">
+                    <h3 className="text-base font-Poppins font-bold text-ColorBlack">
                       Website
                     </h3>
                     <a
                       href={web.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-teal-600 transition-colors"
+                      className="text-ColorBlack/70 hover:text-teal-500 transition-colors"
                     >
                       {web.label}
                     </a>
@@ -171,38 +174,38 @@ export function Contact2({
                 </div>
               </div>
 
-              {/* Business Hours */}
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="text-lg font-semibold text-[#1f2937] mb-4 tracking-tight">
-                  Business Hours
-                </h3>
-                <div className="space-y-2 text-gray-600">
-                  <p className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span>9:00 AM - 6:00 PM</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span>Saturday</span>
-                    <span>By Appointment</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span>Sunday</span>
-                    <span>Closed</span>
-                  </p>
-                </div>
-              </div>
+              <Card className="bg-ColorOffWhite">
+                <CardHeader>
+                  <CardTitle className="text-base">Business Hours</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2 text-ColorBlack/80">
+                    <p className="flex justify-between text-sm">
+                      <span>Monday - Friday</span>
+                      <span>9:00 AM - 6:00 PM</span>
+                    </p>
+                    <p className="flex justify-between text-sm">
+                      <span>Saturday</span>
+                      <span>By Appointment</span>
+                    </p>
+                    <p className="flex justify-between text-sm">
+                      <span>Sunday</span>
+                      <span>Closed</span>
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
 
-            {/* Contact Form */}
             <div>
-              <h3 className="text-xl font-semibold text-[#1f2937] mb-6 tracking-tight">
+              <h3 className="text-2xl font-Poppins font-bold text-ColorBlack mb-8">
                 Send us a message
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="form-group space-y-2">
-                    <Label htmlFor="name" className="text-sm font-semibold text-[#1f2937] uppercase tracking-wider">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">
                       Name *
                     </Label>
                     <Input
@@ -211,11 +214,11 @@ export function Contact2({
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Enter your name"
-                      className={`form-input ${errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-300 focus:border-teal-500 focus:ring-teal-500'}`}
+                      className={errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}
                       required
                     />
                     {errors.name && (
-                      <motion.p 
+                      <motion.p
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="text-red-500 text-sm"
@@ -224,9 +227,9 @@ export function Contact2({
                       </motion.p>
                     )}
                   </div>
-                  
-                  <div className="form-group space-y-2">
-                    <Label htmlFor="email" className="text-sm font-semibold text-[#1f2937] uppercase tracking-wider">
+
+                  <div className="space-y-2">
+                    <Label htmlFor="email">
                       Email *
                     </Label>
                     <Input
@@ -236,11 +239,11 @@ export function Contact2({
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="Enter your email"
-                      className={`form-input ${errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-300 focus:border-teal-500 focus:ring-teal-500'}`}
+                      className={errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}
                       required
                     />
                     {errors.email && (
-                      <motion.p 
+                      <motion.p
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="text-red-500 text-sm"
@@ -251,9 +254,9 @@ export function Contact2({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="form-group space-y-2">
-                    <Label htmlFor="phone" className="text-sm font-semibold text-[#1f2937] uppercase tracking-wider">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">
                       Phone
                     </Label>
                     <Input
@@ -263,20 +266,19 @@ export function Contact2({
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="Enter your phone"
-                      className="form-input border-gray-300 focus:border-teal-500 focus:ring-teal-500"
                     />
                   </div>
-                  
-                  <div className="form-group space-y-2">
-                    <Label htmlFor="service" className="text-sm font-semibold text-[#1f2937] uppercase tracking-wider">
+
+                  <div className="space-y-2">
+                    <Label htmlFor="service">
                       Service Required *
                     </Label>
-                    <select
+                    <Select
                       id="service"
                       name="service"
                       value={formData.service}
                       onChange={handleInputChange}
-                      className={`form-select ${errors.service ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-gray-300 focus:border-teal-500 focus:ring-teal-500'}`}
+                      className={errors.service ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}
                       required
                     >
                       <option value="">Select a service</option>
@@ -286,9 +288,9 @@ export function Contact2({
                       <option value="investment">Investment & Portfolio Reviews</option>
                       <option value="health-check">Financial Health Check</option>
                       <option value="consultation">Consultation & Ongoing Advice</option>
-                    </select>
+                    </Select>
                     {errors.service && (
-                      <motion.p 
+                      <motion.p
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="text-red-500 text-sm"
@@ -299,8 +301,8 @@ export function Contact2({
                   </div>
                 </div>
 
-                <div className="form-group space-y-2">
-                  <Label htmlFor="message" className="text-sm font-semibold text-[#1f2937] uppercase tracking-wider">
+                <div className="space-y-2">
+                  <Label htmlFor="message">
                     Message
                   </Label>
                   <Textarea
@@ -309,14 +311,15 @@ export function Contact2({
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Tell us about your financial goals and how we can help..."
-                    className="form-textarea border-gray-300 focus:border-teal-500 focus:ring-teal-500 min-h-[120px]"
                   />
                 </div>
 
                 <Button
                   type="submit"
+                  variant="teal"
+                  size="lg"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">
@@ -346,7 +349,9 @@ export function Contact2({
                 )}
               </form>
             </div>
-          </div>
+              </div>
+            </CardContent>
+          </Card>
         </motion.div>
       </div>
     </section>
