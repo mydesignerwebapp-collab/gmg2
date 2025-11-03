@@ -92,17 +92,17 @@ const LatestNewsSection = ({
   }, [carouselApi])
 
   return (
-    <section id="latest-news" className="section-padding bg-gray-200">
+    <section id="latest-news" className="section-spacing bg-ColorOffWhite">
       <div className="container-custom">
         <motion.div
-          className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16"
+          className="mb-10 xl:mb-12 flex flex-col justify-between md:flex-row md:items-end"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <div>
-            <h2 className="section-heading leading-snug mb-6 text-teal-500">
+            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-ColorBlack">
               {heading}
             </h2>
           </div>

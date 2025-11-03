@@ -125,76 +125,75 @@ const ImmersiveScrollGallery: React.FC<iImmersiveScrollGalleryProps> = ({
 						opacity: opacitySection2,
 						scale: useTransform(scrollYProgress, [0.6, 0.8], [0.8, 1]),
 					}}
-					className="w-full h-full flex items-center justify-center max-w-6xl mx-auto p-8 relative"
+					className="w-full h-full flex items-center justify-center container-custom relative"
 				>
-					<div className="text-center">
-						<h2 className="text-lg font-semibold text-[#1f2937] tracking-tight mb-6">
+					<div className="text-center w-full">
+						<h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-ColorBlack mb-5">
 							Client Testimonials
 						</h2>
-						<p className="text-base font-light text-gray-600 leading-relaxed max-w-4xl mx-auto mb-12">
-							This section will showcase real client testimonials with video testimonials and success stories. 
-							Below are dummy testimonial cards to demonstrate the layout and design.
+						<p className="text-base xl:text-lg text-ColorBlack/70 max-w-2xl mx-auto mb-12 xl:mb-16">
+							This section will showcase real client testimonials with video testimonials and success stories.
 						</p>
-						
-						{/* Dummy Testimonial Cards */}
-						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+						{/* Testimonial Cards */}
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
 							{/* Card 1 */}
-							<div className="bg-white rounded-lg shadow-card p-6 border border-gray-100">
-								<div className="flex items-center mb-4">
-									<img 
-										src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-										alt="Client" 
-										className="w-12 h-12 rounded-full object-cover mr-4"
+							<div className="card-masco text-left">
+								<div className="flex items-center mb-5">
+									<img
+										src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+										alt="Client"
+										className="w-14 h-14 rounded-full object-cover mr-4"
 									/>
 									<div>
-										<h4 className="text-sm font-semibold text-[#1f2937]">Sarah Mitchell</h4>
-										<p className="text-xs text-gray-500">Melbourne Business Owner</p>
+										<h4 className="text-base font-semibold text-ColorBlack">Sarah Mitchell</h4>
+										<p className="text-sm text-ColorBlack/60">Melbourne Business Owner</p>
 									</div>
 								</div>
-								<p className="text-sm text-gray-600 leading-relaxed">
+								<p className="text-sm xl:text-base text-ColorBlack/70 leading-relaxed">
 									"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
 								</p>
 							</div>
 
 							{/* Card 2 */}
-							<div className="bg-white rounded-lg shadow-card p-6 border border-gray-100">
-								<div className="flex items-center mb-4">
-									<img 
-										src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-										alt="Client" 
-										className="w-12 h-12 rounded-full object-cover mr-4"
+							<div className="card-masco text-left">
+								<div className="flex items-center mb-5">
+									<img
+										src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+										alt="Client"
+										className="w-14 h-14 rounded-full object-cover mr-4"
 									/>
 									<div>
-										<h4 className="text-sm font-semibold text-[#1f2937]">Michael Chen</h4>
-										<p className="text-xs text-gray-500">Melbourne Family</p>
+										<h4 className="text-base font-semibold text-ColorBlack">Michael Chen</h4>
+										<p className="text-sm text-ColorBlack/60">Melbourne Family</p>
 									</div>
 								</div>
-								<p className="text-sm text-gray-600 leading-relaxed">
+								<p className="text-sm xl:text-base text-ColorBlack/70 leading-relaxed">
 									"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
 								</p>
 							</div>
 
 							{/* Card 3 */}
-							<div className="bg-white rounded-lg shadow-card p-6 border border-gray-100">
-								<div className="flex items-center mb-4">
-									<img 
-										src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-										alt="Client" 
-										className="w-12 h-12 rounded-full object-cover mr-4"
+							<div className="card-masco text-left">
+								<div className="flex items-center mb-5">
+									<img
+										src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+										alt="Client"
+										className="w-14 h-14 rounded-full object-cover mr-4"
 									/>
 									<div>
-										<h4 className="text-sm font-semibold text-[#1f2937]">Emma Thompson</h4>
-										<p className="text-xs text-gray-500">Melbourne Professional</p>
+										<h4 className="text-base font-semibold text-ColorBlack">Emma Thompson</h4>
+										<p className="text-sm text-ColorBlack/60">Melbourne Professional</p>
 									</div>
 								</div>
-								<p className="text-sm text-gray-600 leading-relaxed">
+								<p className="text-sm xl:text-base text-ColorBlack/70 leading-relaxed">
 									"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
 								</p>
 							</div>
 						</div>
 
-						<div className="mt-8">
-							<button className="px-6 py-2 bg-teal-500 hover:bg-teal-600 text-white font-medium uppercase tracking-wider transition-all duration-300 border-0 focus:outline-none focus:ring-2 focus:ring-offset-2">
+						<div className="mt-10 xl:mt-12">
+							<button className="px-8 py-3 text-sm xl:px-10 xl:py-4 bg-teal-500 hover:bg-teal-600 text-white font-semibold uppercase tracking-wide transition-all duration-300 rounded-[50px] focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2">
 								Watch Video Testimonials
 							</button>
 						</div>

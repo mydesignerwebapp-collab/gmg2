@@ -56,51 +56,53 @@ export function ServicesSection() {
     <section id="services" className="section-spacing bg-ColorOffWhite">
       <div className="container-custom">
         <motion.div
-          className="text-center mb-10 xl:mb-12"
+          className="text-center mb-12 xl:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-ColorBlack mb-4">
+          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-ColorBlack mb-5">
             Our core services
           </h2>
-          <p className="text-sm xl:text-base text-ColorBlack/70 max-w-2xl mx-auto">
+          <p className="text-base xl:text-lg text-ColorBlack/70 max-w-2xl mx-auto">
             Supporting individuals, families, and business owners with clear, practical financial advice
           </p>
         </motion.div>
 
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-6">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              className="card-masco text-center group hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+              className="flex flex-col"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 xl:w-16 xl:h-16 rounded-full bg-teal-500 text-white mb-4 group-hover:scale-110 transition-transform duration-300">
-                <service.icon className="h-7 w-7 xl:h-8 xl:w-8" />
+              <div className="card-masco text-center flex flex-col h-full group hover:shadow-xl transition-all duration-300">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-teal-500 text-white mb-5 mx-auto group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="h-8 w-8" />
+                </div>
+
+                <h3 className="text-lg xl:text-xl font-semibold text-ColorBlack mb-4">
+                  {service.title}
+                </h3>
+
+                <p className="text-sm xl:text-base text-ColorBlack/70 leading-relaxed mb-6 flex-grow">
+                  {service.description}
+                </p>
+
+                <Button
+                  variant="outline-teal"
+                  size="sm"
+                  onClick={() => scrollToSection('#contact')}
+                  className="w-full group"
+                >
+                  Learn More
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
               </div>
-
-              <h3 className="text-lg xl:text-xl font-semibold text-ColorBlack mb-3">
-                {service.title}
-              </h3>
-
-              <p className="text-sm text-ColorBlack/70 leading-relaxed mb-5">
-                {service.description}
-              </p>
-
-              <Button
-                variant="outline-teal"
-                size="sm"
-                onClick={() => scrollToSection('#contact')}
-                className="group"
-              >
-                Learn More
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
             </motion.div>
           ))}
         </div>

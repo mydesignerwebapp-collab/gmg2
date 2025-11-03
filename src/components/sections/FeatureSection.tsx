@@ -61,35 +61,35 @@ export function FeatureSection() {
   const [activeCalculator, setActiveCalculator] = useState('loan-repayment')
 
   return (
-    <section id="calculators" className="section-padding bg-white">
+    <section id="calculators" className="section-spacing bg-ColorOffWhite">
       <div className="container-custom">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 xl:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-lg font-semibold text-teal-500 tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-ColorBlack mb-5">
             Financial Calculators
           </h2>
-          <p className="text-base font-light text-gray-700 max-w-3xl mx-auto">
-            Make informed financial decisions with our comprehensive suite of calculators. 
+          <p className="text-base xl:text-lg text-ColorBlack/70 max-w-2xl mx-auto">
+            Make informed financial decisions with our comprehensive suite of calculators.
             Get accurate estimates for loans, savings, and investments.
           </p>
         </motion.div>
 
         {/* Calculator Toggle Navigation */}
         <motion.div
-          className="mb-8"
+          className="mb-10 xl:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="flex justify-center">
-            <div className="flex rounded-lg border-2 border-black bg-white overflow-hidden">
+            <div className="flex rounded-[3px] border-2 border-ColorBlack bg-white overflow-hidden">
               {calculators.map((calculator, index) => {
                 const Icon = calculator.icon
                 const isActive = activeCalculator === calculator.id

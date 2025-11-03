@@ -14,7 +14,7 @@ export function QuoteSection() {
   ]
 
   return (
-    <section className="py-12 bg-teal-500">
+    <section className="py-12 md:py-16 bg-teal-500">
       <div className="container-custom">
         <motion.div
           className="text-center"
@@ -24,7 +24,7 @@ export function QuoteSection() {
           transition={{ duration: 0.6 }}
         >
           <div className="max-w-4xl mx-auto">
-            <div className="text-2xl md:text-3xl lg:text-4xl font-light text-white leading-relaxed min-h-[4rem] flex items-center justify-center">
+            <div className="text-xl md:text-2xl xl:text-3xl font-medium text-white leading-relaxed min-h-[4rem] flex items-center justify-center">
               <Typewriter
                 text={quotes}
                 speed={80}

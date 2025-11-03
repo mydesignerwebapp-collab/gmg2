@@ -64,7 +64,7 @@ export function FAQSection() {
   }
 
   return (
-    <section id="faq" className="section-padding bg-white">
+    <section id="faq" className="section-spacing bg-white">
       {/* FAQ Schema for SEO */}
       <script
         type="application/ld+json"
@@ -73,16 +73,16 @@ export function FAQSection() {
       
       <div className="container-custom">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 xl:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="section-heading leading-snug mb-6">
+          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-ColorBlack mb-5">
             Frequently asked questions
           </h2>
-          <p className="section-description leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base xl:text-lg text-ColorBlack/70 max-w-2xl mx-auto">
             Get answers to common questions about our Melbourne financial services and approach
           </p>
         </motion.div>
@@ -91,7 +91,7 @@ export function FAQSection() {
           {faqItems.map((item, index) => (
             <motion.div
               key={item.id}
-              className="card border border-gray-200 overflow-hidden"
+              className="card-masco overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

@@ -90,19 +90,19 @@ export function Contact2({
   }
 
   return (
-    <section id="contact" className="section-padding bg-white">
+    <section id="contact" className="section-spacing bg-white">
       <div className="container-custom">
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12 xl:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="section-heading leading-snug mb-6">
+          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-ColorBlack mb-5">
             {title}
           </h2>
-          <p className="section-description leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base xl:text-lg text-ColorBlack/70 max-w-2xl mx-auto">
             {description}
           </p>
         </motion.div>
