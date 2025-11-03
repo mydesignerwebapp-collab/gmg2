@@ -9,6 +9,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        ColorBlack: '#121212',
+        ColorOffWhite: '#FDFBF9',
+        ColorLime: '#C1FF00',
+        ColorPurple: '#A259FF',
         primary: {
           50: '#f0fdfa',
           100: '#ccfbf1',
@@ -69,6 +73,7 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         heading: ['Inter', 'system-ui', 'sans-serif'],
+        Poppins: ['Poppins', 'sans-serif'],
       },
       fontSize: {
         // SIMPLIFIED FONT SYSTEM - Primary sizes (6 total)
@@ -122,6 +127,9 @@ module.exports = {
             transform: 'translateY(0)',
           },
         },
+      },
+      letterSpacing: {
+        'tighter': '-0.06em',
       },
       boxShadow: {
         'card': '0 4px 6px rgba(0, 0, 0, 0.1)',
