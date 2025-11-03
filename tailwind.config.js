@@ -13,23 +13,22 @@ module.exports = {
           50: '#f0fdfa',
           100: '#ccfbf1',
           200: '#99f6e4',
-          300: '#5eead4', // Fixed to match color guide
+          300: '#5eead4',
           400: '#2dd4bf',
-          500: '#14b8a6',
-          600: '#0d9488',
+          500: '#7CC5C5',
+          600: '#6BB5B5',
           700: '#0f766e',
           800: '#115e59',
           900: '#134e4a',
         },
-        // Keep teal for backward compatibility
         teal: {
           50: '#f0fdfa',
           100: '#ccfbf1',
           200: '#99f6e4',
-          300: '#5eead4', // Fixed to match color guide
+          300: '#5eead4',
           400: '#2dd4bf',
-          500: '#14b8a6',
-          600: '#0d9488',
+          500: '#7CC5C5',
+          600: '#6BB5B5',
           700: '#0f766e',
           800: '#115e59',
           900: '#134e4a',
@@ -69,6 +68,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Inter', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         // SIMPLIFIED FONT SYSTEM - Primary sizes (6 total)
