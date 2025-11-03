@@ -1,82 +1,76 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { cn } from '@/lib/utils'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: 'sm' | 'md' | 'lg'
+  variant?: 'teal' | 'black' | 'white' | 'outline-black' | 'outline-white' | 'outline-teal'
+  size?: 'sm' | 'default' | 'lg' | 'large'
+  rounded?: 'small' | 'default' | 'full'
+  animated?: boolean
   fullWidth?: boolean
   loading?: boolean
+  asChild?: boolean
   children: React.ReactNode
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ 
-    className, 
-    size = 'md', 
+  ({
+    className,
+    variant = 'teal',
+    size = 'default',
+    rounded = 'full',
+    animated = false,
     fullWidth = false,
     loading = false,
     disabled,
-    children, 
-    onClick,
-    ...props 
+    children,
+    ...props
   }, ref) => {
-    const [ripples, setRipples] = useState<Array<{ id: number; x: number; y: number }>>([])
-    
-    const baseClasses = 'inline-flex items-center justify-center text-sm font-medium uppercase tracking-wider transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed rounded relative overflow-hidden'
-    
+
+    const baseClasses = 'inline-flex items-center justify-center font-semibold uppercase tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden'
+
+    const variants = {
+      teal: 'bg-teal-500 hover:bg-teal-600 text-white focus:ring-teal-500',
+      black: 'bg-ColorBlack hover:bg-ColorBlack/90 text-white focus:ring-ColorBlack',
+      white: 'bg-white hover:bg-gray-100 text-ColorBlack border-2 border-ColorBlack focus:ring-gray-300',
+      'outline-black': 'bg-transparent hover:bg-ColorBlack text-ColorBlack hover:text-white border-2 border-ColorBlack focus:ring-ColorBlack',
+      'outline-white': 'bg-transparent hover:bg-white text-white hover:text-ColorBlack border-2 border-white focus:ring-white',
+      'outline-teal': 'bg-transparent hover:bg-teal-500 text-teal-500 hover:text-white border-2 border-teal-500 focus:ring-teal-500',
+    }
+
     const sizes = {
-      sm: 'px-4 py-2 text-xs',
-      md: 'px-6 py-3 text-sm',
-      lg: 'px-8 py-4 text-base'
+      sm: 'px-6 py-2 text-xs',
+      default: 'px-8 py-3 text-sm',
+      lg: 'px-8 py-3 text-sm xl:px-10 xl:py-4',
+      large: 'px-8 py-3 text-sm xl:px-10 xl:py-4 text-base',
     }
-    
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-      if (disabled || loading) return
-      
-      // Create ripple effect
-      const rect = e.currentTarget.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      const newRipple = { id: Date.now(), x, y }
-      
-      setRipples(prev => [...prev, newRipple])
-      
-      // Remove ripple after animation
-      setTimeout(() => {
-        setRipples(prev => prev.filter(ripple => ripple.id !== newRipple.id))
-      }, 600)
-      
-      // Call original onClick
-      if (onClick) {
-        onClick(e)
-      }
+
+    const roundedOptions = {
+      small: 'rounded-[3px]',
+      default: 'rounded-md',
+      full: 'rounded-[50px]',
     }
-    
+
     return (
       <button
         className={cn(
           baseClasses,
+          variants[variant],
           sizes[size],
+          roundedOptions[rounded],
           fullWidth && 'w-full',
-          loading && 'btn-loading',
+          animated && 'group',
           className
         )}
         ref={ref}
         disabled={disabled || loading}
-        onClick={handleClick}
         {...props}
       >
-        {/* Ripple effects */}
-        {ripples.map(ripple => (
-          <span
-            key={ripple.id}
-            className="btn-ripple"
-            style={{
-              left: ripple.x,
-              top: ripple.y,
-            }}
-          />
-        ))}
-        
+        {animated ? (
+          <span className="relative z-10">{children}</span>
+        ) : (
+          children
+        )}
+
         {loading && (
           <svg
             className="animate-spin -ml-1 mr-3 h-5 w-5"
@@ -99,7 +93,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             />
           </svg>
         )}
-        {children}
       </button>
     )
   }

@@ -3,12 +3,11 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { Phone, Mail, Globe, Send, CheckCircle } from "lucide-react"
-import { Button } from "@/components/ui/button-masco"
-import { Input } from "@/components/ui/input-masco"
-import { Label } from "@/components/ui/label-masco"
-import { Textarea } from "@/components/ui/textarea-masco"
-import { Select } from "@/components/ui/select-masco"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card-masco"
+import { Button } from "@/components/ui/Button"
+import { Input } from "@/components/ui/Input"
+import { Label } from "@/components/ui/Label"
+import { Textarea } from "@/components/ui/Textarea"
+import { Select } from "@/components/ui/Select"
 
 interface Contact2Props {
   title?: string
@@ -109,14 +108,13 @@ export function Contact2({
         </motion.div>
 
         <motion.div
+          className="card-masco shadow-xl"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <Card>
-            <CardContent className="p-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-12">
             {/* Contact Information */}
             <div className="space-y-8">
               <div className="space-y-6">
@@ -174,27 +172,25 @@ export function Contact2({
                 </div>
               </div>
 
-              <Card className="bg-ColorOffWhite">
-                <CardHeader>
-                  <CardTitle className="text-base">Business Hours</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2 text-ColorBlack/80">
-                    <p className="flex justify-between text-sm">
-                      <span>Monday - Friday</span>
-                      <span>9:00 AM - 6:00 PM</span>
-                    </p>
-                    <p className="flex justify-between text-sm">
-                      <span>Saturday</span>
-                      <span>By Appointment</span>
-                    </p>
-                    <p className="flex justify-between text-sm">
-                      <span>Sunday</span>
-                      <span>Closed</span>
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="bg-ColorOffWhite rounded-[3px] p-6 xl:p-8">
+                <h3 className="text-base xl:text-lg font-semibold text-ColorBlack mb-4">
+                  Business Hours
+                </h3>
+                <div className="space-y-2 text-ColorBlack/70">
+                  <p className="flex justify-between">
+                    <span>Monday - Friday</span>
+                    <span>9:00 AM - 6:00 PM</span>
+                  </p>
+                  <p className="flex justify-between">
+                    <span>Saturday</span>
+                    <span>By Appointment</span>
+                  </p>
+                  <p className="flex justify-between">
+                    <span>Sunday</span>
+                    <span>Closed</span>
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div>
@@ -349,9 +345,7 @@ export function Contact2({
                 )}
               </form>
             </div>
-              </div>
-            </CardContent>
-          </Card>
+          </div>
         </motion.div>
       </div>
     </section>
