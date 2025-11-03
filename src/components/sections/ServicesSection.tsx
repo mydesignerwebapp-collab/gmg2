@@ -53,7 +53,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="section-spacing bg-ColorOffWhite">
+    <section id="services" className="section-spacing bg-white">
       <div className="container-custom">
         <motion.div
           className="text-center mb-12 xl:mb-16"

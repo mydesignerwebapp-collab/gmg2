@@ -92,7 +92,7 @@ const LatestNewsSection = ({
   }, [carouselApi])
 
   return (
-    <section id="latest-news" className="section-spacing bg-ColorOffWhite">
+    <section id="latest-news" className="section-spacing bg-white">
       <div className="container-custom">
         <motion.div
           className="mb-10 xl:mb-12 flex flex-col justify-between md:flex-row md:items-end"

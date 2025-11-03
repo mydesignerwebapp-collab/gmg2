@@ -61,7 +61,7 @@ export function FeatureSection() {
   const [activeCalculator, setActiveCalculator] = useState('loan-repayment')
 
   return (
-    <section id="calculators" className="section-spacing bg-ColorOffWhite">
+    <section id="calculators" className="section-spacing bg-white">
       <div className="container-custom">
         {/* Header */}
         <motion.div

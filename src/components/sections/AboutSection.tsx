@@ -9,7 +9,7 @@ import { AnimatedFeatureSpotlight } from '@/components/ui/feature-spotlight'
 
 export function AboutSection() {
   return (
-    <section id="about" className="section-spacing bg-ColorOffWhite">
+    <section id="about" className="section-spacing bg-white">
       <div className="container-custom">
         <AnimatedFeatureSpotlight
           preheaderIcon={<Eye className="h-4 w-4" />}
